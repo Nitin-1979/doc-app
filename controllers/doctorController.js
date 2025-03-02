@@ -2,9 +2,9 @@ const Doctor = require('../models/doctor')
 
 exports.doctorDetail= async (req,res)=>{
     try{
-    const name = req.query.name;
-    const doctorDetail = await Doctor.find({name: name})
-    res.json(doctorDetail);
+        const name = req.query.name;
+        const doctorDetail = await Doctor.find({name: name})
+        res.json(doctorDetail);
     }catch (err) {
         console.error("Error is", err);
         res.status(500).json({ error: "Internal Server Error" });
@@ -13,10 +13,10 @@ exports.doctorDetail= async (req,res)=>{
 
 exports.createDoctor= async(req,res)=>{
     try{
-    const {name,email,age} = req.body
-    const doctor = new Doctor({name: name, email: email, age: age});
-    await doctor.save()
-    res.json({data: doctor.id});
+        const {name,email,age} = req.body
+        const doctor = new Doctor({name: name, email: email, age: age});
+        await doctor.save()
+        res.json({data: doctor.id});
     }catch(err){
         console.log("eror",err)
     }
