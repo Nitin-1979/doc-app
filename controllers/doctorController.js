@@ -13,8 +13,8 @@ exports.doctorDetail= async (req,res)=>{
 
 exports.createDoctor= async(req,res)=>{
     try{
-        const {name,email,age} = req.body
-        const doctor = new Doctor({name: name, email: email, age: age});
+        const {name,email,age,password} = req.body
+        const doctor = new Doctor({name: name, email: email, age: age,password: password});
         await doctor.save()
         res.json({data: doctor.id});
     }catch(err){
